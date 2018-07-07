@@ -10,19 +10,19 @@ void FrogDFSSolver::solve()
 {
 	int num = 0;
 	stack<FrogNode> nodes;
-	FrogNode n0(4);
+	FrogNode n0(6);
 	nodes.push(n0);
 	while (!nodes.empty()) {
 		FrogNode crntNode = nodes.top();
 		nodes.pop();
 		FrogState st = crntNode.getState();
-		st.printState();
+		//st.printState();
 		if (st.isTarget()) {
 			//st.printState();
 			num++;
 			continue;
 		}
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 7; i++) {
 			if (st.canJump(i)) {
 				FrogNode child = crntNode.createChdByJump(i);
 				nodes.push(child);
