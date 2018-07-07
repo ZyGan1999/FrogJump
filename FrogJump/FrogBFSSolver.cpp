@@ -1,12 +1,8 @@
 #include "FrogBFSSolver.h"
 
-FrogBFSSolver::FrogBFSSolver(int size):FrogSolver(size)
-{
-}
+FrogBFSSolver::FrogBFSSolver(int size):FrogSolver(size){}
 
-FrogBFSSolver::~FrogBFSSolver()
-{
-}
+FrogBFSSolver::~FrogBFSSolver(){}
 
 void FrogBFSSolver::solve()
 {
