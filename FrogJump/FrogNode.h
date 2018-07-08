@@ -9,7 +9,9 @@ public:
 	FrogNode(const FrogNode & node);
 	FrogNode createChdByJump(int i);
 	FrogState & getState();
+	FrogNode * getParent();
 private:
 	FrogState _state;
+	FrogNode * parent;
 };
 

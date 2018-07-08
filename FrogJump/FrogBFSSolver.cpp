@@ -1,6 +1,7 @@
 #include "FrogBFSSolver.h"
 #include "FrogNode.h"
 #include <queue>
+#include <stack>
 using namespace std;
 FrogBFSSolver::FrogBFSSolver(int size):FrogSolver(size){}
 
@@ -17,6 +18,22 @@ void FrogBFSSolver::solve()
 		nodes.pop();
 		FrogState st = crntNode.getState();
 		if (st.isTarget()) {
+			FrogNode * nx = &crntNode;
+			stack<FrogNode> success;
+			while (nx != nullptr) {
+				success.push(*nx);
+				//nx->getState().printState();
+				nx = nx->getParent();
+				//printf("%p\n", nx);
+			}
+			int StepCount = 1;
+			while (!success.empty()) {
+				auto cur = success.top();
+				success.pop();
+				cout << "State " << StepCount++ << ": ";
+				cur.getState().printState();
+			}
+			//st.printState();
 			continue;
 		}
 		for (int i = 0; i < _size + 1; i++) {

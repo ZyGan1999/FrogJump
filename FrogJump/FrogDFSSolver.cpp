@@ -16,8 +16,23 @@ void FrogDFSSolver::solve()
 		FrogNode crntNode = nodes.top();
 		nodes.pop();
 		FrogState st = crntNode.getState();
-		st.printState();
+		//st.printState();
 		if (st.isTarget()) {
+			FrogNode * nx = &crntNode;
+			stack<FrogNode> success;
+			while (nx != nullptr) {
+				success.push(*nx);
+				//nx->getState().printState();
+				nx = nx->getParent();
+				//printf("%p\n", nx);
+			}
+			int StepCount = 1;
+			while (!success.empty()) {
+				auto cur = success.top();
+				success.pop();
+				cout << "State " << StepCount++ << ": ";
+				cur.getState().printState();
+			}
 			//st.printState();
 			continue;
 		}

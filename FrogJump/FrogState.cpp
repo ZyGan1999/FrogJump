@@ -102,10 +102,10 @@ bool FrogState::canJump(int i)
 bool FrogState::isTarget()
 {
 	for (int i = 0; i < _frognum / 2; i++) {
-		if (_sln[i] > 0) return false;
+		if (_sln[i] >= 0) return false;
 	}
 	for (int i = _frognum / 2 + 1; i < _frognum + 1; i++) {
-		if (_sln[i] < 0) return false;
+		if (_sln[i] <= 0) return false;
 	}
 	return true;
 }
