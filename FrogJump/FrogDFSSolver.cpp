@@ -8,9 +8,9 @@ FrogDFSSolver::~FrogDFSSolver(){}
 
 void FrogDFSSolver::solve()
 {
-	int num = 0;
+	long long num = 0;//计数
 	stack<FrogNode> nodes;
-	FrogNode n0(6);
+	FrogNode n0(_size);//第一个节点
 	nodes.push(n0);
 	while (!nodes.empty()) {
 		FrogNode crntNode = nodes.top();
@@ -19,11 +19,11 @@ void FrogDFSSolver::solve()
 		//st.printState();
 		if (st.isTarget()) {
 			//st.printState();
-			num++;
 			continue;
 		}
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < _size + 1; i++) {
 			if (st.canJump(i)) {
+				num++;
 				FrogNode child = crntNode.createChdByJump(i);
 				nodes.push(child);
 			}
