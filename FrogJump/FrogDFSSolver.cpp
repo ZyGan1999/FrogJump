@@ -16,7 +16,7 @@ void FrogDFSSolver::solve()
 		FrogNode crntNode = nodes.top();
 		nodes.pop();
 		FrogState st = crntNode.getState();
-		//st.printState();
+		st.printState();
 		if (st.isTarget()) {
 			//st.printState();
 			continue;
